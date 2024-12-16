@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donatello</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <div class="toolbar">
+		<div class="workspace-name">
+			<span id="workspace-name" class="workspace-name-text">Workarea</span>
+		</div>
+        <button id="add-board-btn" class="toolbar-btn">+</button>
+        <div class="user-icons" id="user-icons"></div>
+		<button id="add-user-btn" class="toolbar-btn">Add User</button>
+        <button id="filter-btn" class="toolbar-btn">Filter</button>
+        <button id="settings-btn" class="toolbar-btn open-modal" data-modal="settings">Settings</button>
+    </div>
+
+	<div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+	<!-- Work area -->
+    <div class="work-area" id="work-area">		
+		<div class="board" id="ToDo">
+			<div class="header" id="ToDo-header"></div>
+			<div class="tasks-container"></div>
+			<button class="add-task-button open-modal" data-modal="addTask" onclick="openBoardMenu('ToDo')">Add another task</button>
+		</div>
+
+		<div class="board" id="InProgress">
+			<div class="header" id="InProgress-header"></div>
+			<div class="tasks-container"></div>
+			<button class="add-task-button open-modal" data-modal="addTask" onclick="openBoardMenu('InProgress')">Add another task</button>
+		</div>
+
+		<div class="board" id="Done">
+			<div class="header" id="Done-header"></div>
+			<div class="tasks-container"></div>
+			<button class="add-task-button open-modal" data-modal="addTask" onclick="openBoardMenu('Done')">Add another task</button>
+		</div>
+    </div>
+
+    <script src="{% static 'main.js' %}"></script>
+</body>
+</html>
